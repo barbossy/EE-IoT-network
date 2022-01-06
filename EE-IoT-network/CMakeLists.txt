@@ -22,7 +22,9 @@ SET(INCLUDE_DIR include)
 
 SET(SOURCES
     ${INCLUDE_DIR}/end_user.h
+    ${INCLUDE_DIR}/link.h
     ${SRC_DIR}/end_user.cpp
+    ${SRC_DIR}/link.cpp
     )
 
 add_executable(EE-IoT-network src/main.cpp ${SOURCES})

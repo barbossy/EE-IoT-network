@@ -4,6 +4,8 @@
 #include<iostream>
 #include <vector>
 
+#include "link.h"
+
 class EndUserIface
 {
 public:
@@ -14,7 +16,7 @@ public:
 class EndUser : public EndUserIface
 {
 public:
-    EndUser();
+    EndUser() = default;
     ~EndUser() = default;
     EndUser(const EndUser&) = delete;
     EndUser(EndUser &&) = delete;
@@ -22,13 +24,8 @@ public:
     EndUser& operator=(const EndUser&&) = delete;
 
 private:
-    float mRate;
     float mMinRate;
-    float mAlpha;
-    float mBeta;
     std::vector<float> mTransmitPowers;
-    std::vector<float> mChannelCoefficients;
-
 };
 
 #endif // ENDUSER_H
