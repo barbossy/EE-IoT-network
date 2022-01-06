@@ -16,13 +16,13 @@ conan_cmake_install(PATH_OR_REFERENCE ./../EE-IoT-network/EE-IoT-network/
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
-SET(SOURCE src)
-SET(INCLUDE include)
+SET(SRC_DIR src)
+SET(INCLUDE_DIR include)
 
 
 SET(SOURCES
-    ${INCLUDE}/end_user.h
-    ${SOURCE}/end_user.cpp
+    ${INCLUDE_DIR}/end_user.h
+    ${SRC_DIR}/end_user.cpp
     )
 
 add_executable(EE-IoT-network src/main.cpp ${SOURCES})
