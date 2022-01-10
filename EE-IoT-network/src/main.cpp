@@ -1,9 +1,8 @@
 #include <iostream>
-
-using namespace std;
+#include "link.h"
 
 int main()
 {
-    cout << "Hello" << endl;
+    Link link(256);
     return 0;
 }

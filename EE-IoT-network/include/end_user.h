@@ -1,10 +1,8 @@
 #ifndef ENDUSER_H
 #define ENDUSER_H
 
-#include<iostream>
-#include <vector>
-
-#include "link.h"
+#include <iostream>
+#include <Eigen/Dense>
 
 class EndUserIface
 {
@@ -16,16 +14,18 @@ public:
 class EndUser : public EndUserIface
 {
 public:
-    EndUser() = default;
+    EndUser(const uint32_t&, const float&);
     ~EndUser() = default;
+    EndUser() = delete;
     EndUser(const EndUser&) = delete;
-    EndUser(EndUser &&) = delete;
-    EndUser& operator=(const EndUser&) = delete;
-    EndUser& operator=(const EndUser&&) = delete;
+    EndUser(const EndUser&&) = delete;
+    EndUser& operator =(const EndUser&) = delete;
+    EndUser& operator =(const EndUser&&) = delete;
 
 private:
     float mMinRate;
-    std::vector<float> mTransmitPowers;
+    Eigen::Vector<float, Eigen::Dynamic> mTransmitPower;
+
 };
 
 #endif // ENDUSER_H
