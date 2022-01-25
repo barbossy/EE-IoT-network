@@ -8,6 +8,8 @@ class EndUserIface
 public:
     EndUserIface() = default;
     virtual ~EndUserIface() = default;
+
+    virtual float getMinRate() const = 0;
 };
 
 class EndUser : public EndUserIface
@@ -20,6 +22,11 @@ public:
     EndUser(const EndUser&&) = delete;
     EndUser& operator =(const EndUser&) = delete;
     EndUser& operator =(const EndUser&&) = delete;
+
+    inline float getMinRate() const override
+    {
+        return mMinRate;
+    }
 
 private:
     float mMinRate;

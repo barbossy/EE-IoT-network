@@ -10,11 +10,15 @@
 #include "link.h"
 #include "rayleigh_channel.h"
 
+typedef std::tuple<std::shared_ptr<EndUserIface>, std::shared_ptr<LinkIFace>, std::shared_ptr<InterferenceIface>> User;
+
 class CellIface
 {
 public:
     CellIface() = default;
     virtual ~CellIface() = default;
+
+    virtual const std::vector<User>& getUsers() const = 0;
 };
 
 class Cell : public CellIface
@@ -27,11 +31,16 @@ public:
     Cell& operator =(const Cell&) = delete;
     Cell& operator =(const Cell&&) = delete;
     
-    EResults addUser(std::tuple<std::shared_ptr<EndUserIface>, std::shared_ptr<LinkIFace>, std::shared_ptr<InterferenceIface>>);
+    inline const std::vector<User>& getUsers() const override
+    {
+        return mUsers;
+    }
+
+    EResults addUser(User);
     EResults setRayleighChannel(std::shared_ptr<RayleighChannel>);
 
 private:
-    std::vector<std::tuple<std::shared_ptr<EndUserIface>, std::shared_ptr<LinkIFace>, std::shared_ptr<InterferenceIface>>> mUsers;
+    std::vector<User> mUsers;
     std::shared_ptr<RayleighChannelIface> mRayleighChannel;
     EResults mIsInterferenceVaild;
 

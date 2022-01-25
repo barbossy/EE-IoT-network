@@ -5,8 +5,11 @@
 #include <vector>
 #include <memory>
 
+#include "defines.h"
 #include "end_user.h"
 #include "link.h"
+
+class CellIface;
 
 class InterferenceIface
 {
@@ -14,7 +17,7 @@ public:
     InterferenceIface() = default;
     virtual ~InterferenceIface() = default;
 
-    virtual void addInterference(std::shared_ptr<EndUserIface>, std::shared_ptr<LinkIFace>) = 0;
+    virtual EResults addInterference(std::shared_ptr<EndUserIface>, std::shared_ptr<LinkIFace>) = 0;
 };
 
 class Interference : public InterferenceIface
@@ -27,7 +30,10 @@ public:
     Interference& operator =(const Interference&) = delete;
     Interference& operator =(const Interference&&) = delete;
 
-    void addInterference(std::shared_ptr<EndUserIface>, std::shared_ptr<LinkIFace>) override;
+    EResults addInterference(std::shared_ptr<EndUserIface>, std::shared_ptr<LinkIFace>) override;
+
+    EResults addIntercellInterference(std::shared_ptr<CellIface>);
+    EResults addIntracellInterference(std::vector<std::shared_ptr<CellIface>>&);
 
 private:
     std::vector<std::pair<std::shared_ptr<EndUserIface>, std::shared_ptr<LinkIFace>>> mInterference;

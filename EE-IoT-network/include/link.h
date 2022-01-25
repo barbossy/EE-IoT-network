@@ -13,8 +13,7 @@ public:
     LinkIFace() = default;
     virtual ~LinkIFace() = default;
 
-    virtual void setChannelCoefficients(std::shared_ptr<RayleighChannelIface>) = 0;
-    virtual Eigen::Vector<float, Eigen::Dynamic> getChannelCoefficients() = 0;
+    virtual EResults setChannelCoefficients(std::shared_ptr<RayleighChannelIface>) = 0;
 };
 
 class Link : public LinkIFace
@@ -28,8 +27,7 @@ public:
     Link& operator =(const Link&) = delete;
     Link& operator =(const Link&&) = delete;
 
-    void setChannelCoefficients(std::shared_ptr<RayleighChannelIface>) override;
-    Eigen::Vector<float, Eigen::Dynamic> getChannelCoefficients() override { return mChannelCoefficients; }
+    EResults setChannelCoefficients(std::shared_ptr<RayleighChannelIface>) override;
 
 private:
     float mNoise;

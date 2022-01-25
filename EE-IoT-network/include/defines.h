@@ -3,7 +3,9 @@
 
 #include <string>
 
+static const uint8_t END_USER_IDX = 0;
 static const uint8_t LINK_IDX = 1;
+static const uint8_t INTERFERENCE_IDX = 2;
 
 enum class EResults
 {
