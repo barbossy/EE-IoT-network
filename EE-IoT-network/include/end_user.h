@@ -1,7 +1,6 @@
 #ifndef ENDUSER_H
 #define ENDUSER_H
 
-#include <iostream>
 #include <Eigen/Dense>
 
 class EndUserIface
@@ -14,9 +13,9 @@ public:
 class EndUser : public EndUserIface
 {
 public:
-    EndUser(const uint32_t&, const float&);
+    EndUser(const uint32_t&, const float& = 0);
     ~EndUser() = default;
-    EndUser() = delete;
+    EndUser() = default;
     EndUser(const EndUser&) = delete;
     EndUser(const EndUser&&) = delete;
     EndUser& operator =(const EndUser&) = delete;
