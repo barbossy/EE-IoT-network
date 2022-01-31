@@ -6,8 +6,8 @@
 int main()
 {
     Network network;
-    network.setNetworkLinks();
-
+    network.addCell(std::make_shared<Cell>("p1"));
+    network.addCell(std::make_shared<Cell>("p2"));
 
 
     return 0;

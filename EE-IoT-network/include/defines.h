@@ -10,6 +10,8 @@ static const uint8_t INTERFERENCE_IDX = 2;
 enum class EResults
 {
     SUCCESS,
+    CELL_ID_EXISTS,
+    INVALID_SIZE,
     INTERFERENCE_INVALID,
     INTERFERENCE_VALID
 };

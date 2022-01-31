@@ -21,7 +21,6 @@ class Link : public LinkIFace
 public:
     Link(const uint32_t&);
     ~Link() = default;
-    Link() = default;
     Link(const Link&) = delete;
     Link(const Link&&) = delete;
     Link& operator =(const Link&) = delete;
@@ -30,9 +29,8 @@ public:
     EResults setChannelCoefficients(std::shared_ptr<RayleighChannelIface>) override;
 
 private:
-    float mNoise;
-    float mPathLoss;
     Eigen::Vector<float, Eigen::Dynamic> mChannelCoefficients;
+
 };
 
 #endif // LINK_H

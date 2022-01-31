@@ -6,10 +6,11 @@
 #include <memory>
 
 #include "defines.h"
-#include "end_user.h"
+//#include "end_user.h"
 #include "link.h"
 
 class CellIface;
+class EndUserIface;
 
 class InterferenceIface
 {
