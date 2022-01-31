@@ -2,7 +2,7 @@
 #define NETWORK_H
 
 #include <memory>
-#include <vector>
+#include <map>
 
 #include "cell.h"
 #include "defines.h"
@@ -13,9 +13,7 @@ public:
     NetworkIface() = default;
     virtual ~NetworkIface() = default;
 
-    virtual EResults setNetworkLinks() = 0;
-
-    void fun() {}
+    virtual EResults addCell(std::shared_ptr<CellIface>) = 0;
 };
 
 class Network : public NetworkIface
@@ -23,7 +21,7 @@ class Network : public NetworkIface
 public:
     Network()
     {
-        mCells.push_back(std::make_shared<Cell>());
+//        mCells.push_back(std::make_shared<Cell>());
     }
     ~Network() = default;
     Network(const Network&) = delete;
@@ -31,10 +29,10 @@ public:
     Network& operator =(const Network&) = delete;
     Network& operator =(const Network&&) = delete;
 
-    EResults setNetworkLinks() override;
+    EResults addCell(std::shared_ptr<CellIface>) override;
 
 private:
-    std::vector<std::shared_ptr<CellIface>> mCells;
+    std::map<std::string, std::shared_ptr<CellIface>> mCells;
 
 };
 
