@@ -11,3 +11,4 @@ EResults EndUser::setLink(std::shared_ptr<RayleighChannelIface> rayleighChannel)
     mLink->setChannelCoefficients(rayleighChannel);
     return EResults::SUCCESS;
 }
+

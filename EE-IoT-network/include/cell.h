@@ -19,6 +19,7 @@ public:
     virtual const std::vector<std::shared_ptr<EndUserIface>>& getUsers() const = 0;
 
     virtual EResults addUser(std::shared_ptr<EndUserIface>) = 0;
+    virtual EResults setInteference(std::map<std::string, std::shared_ptr<CellIface>>) = 0;
     virtual std::string getCellId() = 0;
 };
 
@@ -44,6 +45,7 @@ public:
     }
 
     EResults addUser(std::shared_ptr<EndUserIface>) override;
+    EResults setInteference(std::map<std::string, std::shared_ptr<CellIface>>) override;
 
 private:
     std::vector<std::shared_ptr<EndUserIface>> mUsers;

@@ -14,6 +14,7 @@ public:
     virtual ~NetworkIface() = default;
 
     virtual EResults addCell(std::shared_ptr<CellIface>) = 0;
+    virtual EResults setNetworkLinks() = 0;
 };
 
 class Network : public NetworkIface
@@ -30,6 +31,8 @@ public:
     Network& operator =(const Network&&) = delete;
 
     EResults addCell(std::shared_ptr<CellIface>) override;
+    EResults setNetworkLinks() override;
+
 
 private:
     std::map<std::string, std::shared_ptr<CellIface>> mCells;

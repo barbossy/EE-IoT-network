@@ -22,14 +22,14 @@ SET(INCLUDE_DIR include)
 
 SET(SOURCES
     ${INCLUDE_DIR}/cell.h
-    ${INCLUDE_DIR}/interference.h
+#    ${INCLUDE_DIR}/interference.h
     ${INCLUDE_DIR}/defines.h
     ${INCLUDE_DIR}/end_user.h
     ${INCLUDE_DIR}/link.h
     ${INCLUDE_DIR}/network.h
     ${INCLUDE_DIR}/rayleigh_channel.h
     ${SRC_DIR}/cell.cpp
-    ${SRC_DIR}/interference.cpp
+#    ${SRC_DIR}/interference.cpp
     ${SRC_DIR}/end_user.cpp
     ${SRC_DIR}/link.cpp
     ${SRC_DIR}/network.cpp
